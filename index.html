@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Library Page</title>
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sofia+Sans:ital,wght@0,1..1000;1,1..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Css -->
+    <link rel="stylesheet" id="stylesheet" href="/style.css" />
+
+    <!-- Javascript -->
+    <script src="/script.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="Img/Favicon.png" type="image/x-icon" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="search-container">
+        <input
+          type="text"
+          placeholder="Search"
+          class="nav-search"
+          oninput="searchNav()"
+        />
+        <button>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <div class="categories">
+        <button class="category-btn" onclick="FilterBtn('action')">
+          Action
+        </button>
+        <button class="category-btn" onclick="FilterBtn('adventure')">
+          Adventure
+        </button>
+        <button class="category-btn" onclick="FilterBtn('comedy')">
+          Comedy
+        </button>
+        <button class="category-btn" onclick="FilterBtn('drama')">Drama</button>
+        <button class="category-btn" onclick="FilterBtn('horror')">
+          Horror
+        </button>
+        <button class="category-btn" onclick="FilterBtn('romance')">
+          Romance
+        </button>
+        <button class="category-btn" onclick="FilterBtn('sci-fi')">
+          Science Fiction
+        </button>
+        <button class="category-btn" onclick="FilterBtnAll()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </nav>
+    <header>
+      <div
+        class="single-movie"
+        data-type="action, comedy"
+        data-name="guardians of the galaxy"
+      >
+        <div class="movie-image-container">
+          <img src="Img/guardians of the galaxy" alt="" />
+        </div>
+        <h1 class="movie-title">guardians of the galaxy</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="drama"
+        data-name="the shawshank redemption"
+      >
+        <div class="movie-image-container">
+          <img src="Img/the shawshank redemption.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">the shawshank redemption</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="horror, action"
+        data-name="the dark knight"
+      >
+        <div class="movie-image-container">
+          <img src="Img/the dark knight.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">the dark knight</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="romance, comedy"
+        data-name="crazy, stupid, love"
+      >
+        <div class="movie-image-container">
+          <img src="Img/Crazy, Stupid, Love.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">crazy, stupid, love</h1>
+      </div>
+
+      <div class="single-movie" data-type="drama" data-name="forrest gump">
+        <div class="movie-image-container">
+          <img src="Img/forrest gump.webp" alt="" />
+        </div>
+        <h1 class="movie-title">forrest gump</h1>
+      </div>
+
+      <div class="single-movie" data-type="horror" data-name="a quiet place">
+        <div class="movie-image-container">
+          <img src="Img/a quiet place.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">a quiet place</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="sci-fi, action"
+        data-name="mad max: fury road"
+      >
+        <div class="movie-image-container">
+          <img src="Img/mad max fury road.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">mad max: fury road</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="romance, drama"
+        data-name="the notebook"
+      >
+        <div class="movie-image-container">
+          <img src="Img/the notebook.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">the notebook</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="adventure, comedy"
+        data-name="jumanji: welcome to the jungle"
+      >
+        <div class="movie-image-container">
+          <img src="Img/jumanji welcome to the jungle.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">jumanji: welcome to the jungle</h1>
+      </div>
+
+      <div class="single-movie" data-type="sci-fi" data-name="interstellar">
+        <div class="movie-image-container">
+          <img src="Img/interstellar.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">interstellar</h1>
+      </div>
+
+      <div class="single-movie" data-type="action, horror" data-name="die hard">
+        <div class="movie-image-container">
+          <img src="Img/die hard.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">die hard</h1>
+      </div>
+
+      <div class="single-movie" data-type="comedy" data-name="the hangover">
+        <div class="movie-image-container">
+          <img src="Img/the hangover.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">the hangover</h1>
+      </div>
+
+      <div class="single-movie" data-type="romance, sci-fi" data-name="her">
+        <div class="movie-image-container">
+          <img src="Img/Her.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">her</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="action, adventure"
+        data-name="pirates of the caribbean"
+      >
+        <div class="movie-image-container">
+          <img src="Img/pirates of the caribbean.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">pirates of the caribbean</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="comedy, romance"
+        data-name="10 things i hate about you"
+      >
+        <div class="movie-image-container">
+          <img src="Img/10 things i hate about you.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">10 things i hate about you</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="drama, sci-fi"
+        data-name="blade runner 2049"
+      >
+        <div class="movie-image-container">
+          <img src="Img/blade runner 2049.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">blade runner 2049</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="horror, adventure"
+        data-name="the mummy"
+      >
+        <div class="movie-image-container">
+          <img src="Img/the mummy.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">the mummy</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="drama, romance"
+        data-name="la la land"
+      >
+        <div class="movie-image-container">
+          <img src="Img/la la land.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">la la land</h1>
+      </div>
+
+      <div
+        class="single-movie"
+        data-type="action, sci-fi"
+        data-name="the matrix"
+      >
+        <div class="movie-image-container">
+          <img src="Img/The Matrix.jpg" alt="" />
+        </div>
+        <h1 class="movie-title">the matrix</h1>
+      </div>
+    </header>
+    <p class="copyright">Website Created By Younes AMAZZAL</p>
+    <div class="footer-links-container">
+      <a title="instagram" href="https://www.instagram.com/amzprod2">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a
+        title="github"
+        href="https://www.linkedin.com/in/younes-amazzal-3152042b0/"
+      >
+        <i class="fa-brands fa-github"></i>
+      </a>
+      <a
+        title="linkedin"
+        href="https://www.linkedin.com/in/younes-amazzal-3152042b0/"
+      >
+        <i class="fa-brands fa-linkedin-in"></i>
+      </a>
+      <a title="whatsapp" href="https://wa.me/212635303129">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+    </div>
+  </body>
+</html>
